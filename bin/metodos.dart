@@ -11,6 +11,8 @@ void main() {
   limao1.printAlimento();
   mandioca1.cozinhar();
   limao1.fazerSuco();
+  limao1.separarIngredientes();
+  limao1.fazerMassa();
 
 
 }
@@ -41,7 +43,7 @@ class Legumes extends Alimento {
   }
 }
 
-class Frutas extends Alimento {
+class Frutas extends Alimento implements bolo{
   bool isSuco;
 
   Frutas(String nome, double peso, String cor, String sabor, this.isSuco)
@@ -54,5 +56,27 @@ class Frutas extends Alimento {
       print('Não pode fazer Suco de $nome.');
     }
   }
+
+  @override
+  void separarIngredientes() {
+    print('Catar $nome');
+  }
+
+  @override
+  void fazerMassa() {
+    print('Misturar $nome com farinha, açucar e ovos...');
+  }
+
+  @override
+  void assar() {
+    print('Colocar no Forno!');
+  }
+}
+
+abstract class bolo {
+  void separarIngredientes();
+  void fazerMassa();
+  void assar();
+
 }
 
